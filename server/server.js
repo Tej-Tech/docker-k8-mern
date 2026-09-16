@@ -34,11 +34,17 @@ app.use('*', (req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
+
 // Database connection
 mongoose
   .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // Point this to the certificate file you downloaded in Step 2
+      tlsCAFile: './global-bundle.pem', 
+      
+      // Optional: Recommended settings for Mongoose/DocDB
+      serverSelectionTimeoutMS: 5000,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
   })
   .then(() => {
     console.log('Connected to MongoDB');
