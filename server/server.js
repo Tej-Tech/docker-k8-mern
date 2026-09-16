@@ -39,10 +39,6 @@ app.use('*', (req, res) => {
 mongoose
   .connect(process.env.MONGO_URI, {
     // Point this to the certificate file you downloaded in Step 2
-      tlsCAFile: './global-bundle.pem', 
-      
-      // Optional: Recommended settings for Mongoose/DocDB
-      serverSelectionTimeoutMS: 5000,
       useNewUrlParser: true,
       useUnifiedTopology: true,
   })
