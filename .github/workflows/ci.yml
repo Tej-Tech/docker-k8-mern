@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (optional)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Add EC2 host to known_hosts
         run: |
@@ -74,7 +74,7 @@ jobs:
             cd "${EC2_APP_DIR}"
 
             git fetch --all
-            git reset --hard origin/main
+            git reset --hard origin/dev
 
             docker compose up -d --build
 
