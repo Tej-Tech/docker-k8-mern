@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/tasks', taskRoutes);
 
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ message: 'Server is running!' });
