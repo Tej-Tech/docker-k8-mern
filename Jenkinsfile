@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git url: 'https://github.com/sangammukherjee/devops-youtube-course-2025.git', branch: 'dev'
+        git url: 'https://github.com/Tej-Tech/docker-k8-mern.git', branch: 'dev'
       }
     }
 
