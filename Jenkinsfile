@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git url: 'https://github.com/Tej-Tech/docker-k8-mern.git', branch: 'main'
+        git url: 'https://github.com/sangammukherjee/devops-youtube-course-2025.git', branch: 'main'
       }
     }
 
@@ -27,20 +27,23 @@ EOF
       }
     }
 
-    stage('Build Docker Images') {
-      steps {
-        sh '''
-          echo "Building backend image..."
-          docker compose build
-        '''
-      }
-    }
+    // stage('Build Docker Images') {
+    //   steps {
+    //     sh '''
+    //       echo "Building backend image..."
+    //       docker build -t $BACKEND_IMAGE ./server
+
+    //       echo "Building frontend image..."
+    //       docker build -t $FRONTEND_IMAGE ./client --build-arg VITE_API_URL=http://localhost:5000/api
+    //     '''
+    //   }
+    // }
 
     stage('Run with Docker Compose') {
       steps {
         sh '''
           echo "Starting MERN stack with Docker Compose..."
-          docker compose up -d
+          docker compose up --build -d
 
           echo "Showing running containers..."
           docker ps
