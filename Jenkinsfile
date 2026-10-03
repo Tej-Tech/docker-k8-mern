@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git url: 'https://github.com/sangammukherjee/devops-youtube-course-2025.git', branch: 'main'
+        git url: 'https://github.com/sangammukherjee/devops-youtube-course-2025.git', branch: 'dev'
       }
     }
 
@@ -26,18 +26,6 @@ EOF
         '''
       }
     }
-
-    // stage('Build Docker Images') {
-    //   steps {
-    //     sh '''
-    //       echo "Building backend image..."
-    //       docker build -t $BACKEND_IMAGE ./server
-
-    //       echo "Building frontend image..."
-    //       docker build -t $FRONTEND_IMAGE ./client --build-arg VITE_API_URL=http://localhost:5000/api
-    //     '''
-    //   }
-    // }
 
     stage('Run with Docker Compose') {
       steps {
